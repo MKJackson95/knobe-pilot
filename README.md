@@ -36,7 +36,37 @@ tracking something like a true self".
 
 ## What came out
 
-Module A, pooled over the three scenarios:
+The headline is a contrast between the two modules. All three models converge
+on the Knobe effect, giving near-identical judgements about intentionality
+and blame. The same three models diverge completely on the true-self effect.
+
+### Module B — the Knobe side-effect effect
+
+Pooled over three scenarios, 90 responses per cell.
+
+| Model | Measure | Harm | Help | Asymmetry |
+|---|---|---|---|---|
+| Haiku 4.5 | intentionality | 6.17 | 1.43 | +4.73 |
+| | responsibility | 6.98 | 5.11 | +1.87 |
+| | causation | 6.57 | 5.51 | +1.06 |
+| Sonnet 4.6 | intentionality | 7.00 | 2.11 | +4.89 |
+| | responsibility | 7.00 | 3.89 | +3.11 |
+| | causation | 7.00 | 4.00 | +3.00 |
+| Opus 4.8 | intentionality | 6.11 | 2.40 | +3.71 |
+| | responsibility | 6.76 | 2.68 | +4.08 |
+| | causation | 6.00 | 3.67 | +2.33 |
+
+Blame and praise are asked only in the condition they apply to. Blame for the
+harmful side effect: 6.73 (Haiku), 7.00 (Sonnet), 6.34 (Opus). Praise for the
+helpful one: 2.04, 1.47, 2.00. The gap runs between 4.3 and 5.5 on every
+model.
+
+The effect reproduces on all three, in the same direction and at a similar
+magnitude.
+
+### Module A — true-self attribution
+
+Pooled over the three scenarios.
 
 | Model | Good act | Bad act | Asymmetry |
 |---|---|---|---|
@@ -48,7 +78,9 @@ Haiku reproduces the human pattern. Opus shows an attenuated version. Sonnet
 shows none, and reverses on the colleague scenario, rating the bad act 7.00
 against the good act's 6.00.
 
-The out-of-character control, same bad acts:
+### The out-of-character control
+
+Same bad acts, with the agent described as normally kind.
 
 | Model | Bad | Bad, out of character | Drop |
 |---|---|---|---|
@@ -71,8 +103,8 @@ format rather than the models' judgement: forcing a bare digit with
 `max_tokens=10` makes the first token effectively deterministic. Most cell
 means here are single points rather than samples, so dispersion statistics
 and significance tests over them would mislead. Haiku is the only model
-producing real spread, and its bad condition is bimodal — 60 responses at 1–2
-against 28 at 6–7 — which the mean of 3.16 conceals.
+producing real spread in Module A, and its bad condition there is bimodal — 60 responses at 1–2
+against 28 at 6–7 — which the mean of 3.16 conceals. The same collapse appears in Module B: Sonnet returned exactly 7.00 on four of its five harm measures.
 
 **No counterbalancing.** Every item runs the scale in one direction, 1 as
 disagree and 7 as agree, with no rotation of anchors or statement polarity.
@@ -105,6 +137,7 @@ their output to the working directory, so the structure matches the history.
 | `ooc_check.py` | The out-of-character control |
 | `diagnose.py`, `diagnose_opus.py` | Qualitative probes asking for reasoning |
 | `show_results.py` | Rating distributions from the saved CSVs |
+| `show_battery.py` | Module B means by model, measure and condition |
 
 Data files carry the name of the script that wrote them.
 `battery_multi_20260626_162439.csv` is timestamped because that script wrote
